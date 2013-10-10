@@ -1,5 +1,5 @@
 module RestPack::Email::Service::Commands
-  module Setting
+  module EmailSetting
     class Create < RestPack::Service::Command
       required do
         array :settings do
@@ -15,8 +15,8 @@ module RestPack::Email::Service::Commands
       end
 
       def execute
-        settings = Models::Setting.create!(inputs[:settings])
-        Serializers::Setting.serialize(settings)
+        settings = Models::EmailSetting.create!(inputs[:settings])
+        Serializers::EmailSetting.serialize(settings)
       end
     end
   end

@@ -1,4 +1,4 @@
-class CreateConfiguration < ActiveRecord::Migration
+class CreateEmailSetting < ActiveRecord::Migration
   def change
     create_table :restpack_email_settings do |t|
       t.integer :application_id,        :null => false

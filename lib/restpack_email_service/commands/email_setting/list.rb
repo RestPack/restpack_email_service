@@ -1,5 +1,5 @@
 module RestPack::Email::Service::Commands
-  module Setting
+  module EmailSetting
     class List < RestPack::Service::Command
       required do
         integer :application_id
@@ -11,7 +11,7 @@ module RestPack::Email::Service::Commands
       end
 
       def execute
-        Serializers::Email.resource(inputs)
+        Serializers::EmailSetting.resource(inputs)
       end
     end
   end

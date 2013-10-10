@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Models::Setting do
+describe Models::EmailSetting do
   it { should validate_presence_of(:application_id) }
   it { should validate_presence_of(:provider) }
   it { should validate_presence_of(:username) }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Commands::Setting::Create do
+describe Commands::EmailSetting::Create do
   #TODO: GJ: validate array
   # is_required :application_id, :provider, :username, :secret
 

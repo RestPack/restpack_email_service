@@ -1,8 +1,8 @@
 module RestPack::Email::Service::Serializers
-  class Setting
+  class EmailSetting
     include RestPack::Serializer
 
-    self.model_class = Models::Setting
+    self.model_class = Models::EmailSetting
     self.key = :settings
 
     attributes :id, :application_id, :provider, :username, :secret

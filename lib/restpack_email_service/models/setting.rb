@@ -1,5 +1,5 @@
 module RestPack::Email::Service::Models
-  class Setting < ActiveRecord::Base
+  class EmailSetting < ActiveRecord::Base
     self.table_name = :restpack_email_settings
 
     attr_accessible :application_id, :provider, :username, :secret
