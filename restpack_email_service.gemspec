@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "restpack_service"
   spec.add_dependency "mail"
+  spec.add_dependency "liquid"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "database_cleaner", "~> 1.0.1"
