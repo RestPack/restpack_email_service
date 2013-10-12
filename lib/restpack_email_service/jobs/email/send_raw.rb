@@ -3,7 +3,7 @@ require 'mail'
 
 module RestPack::Email::Service::Jobs
   module Email
-    class Send
+    class SendRaw
       include Sidekiq::Worker
 
       def perform(params)
