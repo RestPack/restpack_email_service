@@ -5,7 +5,7 @@ module RestPack::Email::Service::Serializers
     self.model_class = Models::EmailTemplate
     self.key = :templates
 
-    attributes :id, :application_id, :identifier, :template
+    attributes :id, :application_id, :identifier, :text_template, :html_template
     can_filter_by :application_id
   end
 end

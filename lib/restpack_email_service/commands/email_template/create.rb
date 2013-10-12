@@ -7,7 +7,11 @@ module RestPack::Email::Service::Commands
             required do
               integer :application_id
               string :identifier
-              string :template
+            end
+
+            optional do
+              string :text_template
+              string :html_template
             end
           end
         end
