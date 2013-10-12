@@ -11,27 +11,41 @@ module RestPack::Email::Service::Jobs
         if template
           params['text_body'] = template.render_text(params['data'])
           params['html_body'] = template.render_html(params['data'])
+          Jobs::Email::SendRaw.new.perform(params)
         else
           #TODO: GJ: logging exception
+          raise "Invalid template: #{params['template']}"
         end
-        Jobs::Email::SendRaw.new.perform(params)
       end
 
       private
 
       def get_template(params)
+        identifier = params['template']
         template = Models::EmailTemplate.where(
           application_id: params['application_id'],
-          identifier: params['template']
+          identifier: identifier
         ).take
 
-        unless template
-          #TODO: GJ: load default from disk if it exists
+        template ||= Models::EmailTemplate.new
+
+        if template.text_template.blank?
+          template.text_template = load_default_template(identifier, 'text')
         end
 
-        #TODO: GJ: inject header and footer if present in template
+        if template.html_template.blank?
+          template.html_template = load_default_template(identifier, 'html')
+        end
 
         template
+      end
+
+      def load_default_template(identifier, format='html')
+        template_path = '../../../../../templates'
+        filepath = File.expand_path("#{template_path}/#{identifier}.#{format}.liquid", __FILE__)
+        if File.exists? filepath
+          return File.read(filepath)
+        end
       end
     end
   end
