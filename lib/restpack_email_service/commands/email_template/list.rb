@@ -6,6 +6,7 @@ module RestPack::Email::Service::Commands
       end
 
       optional do
+        integer :domain_id
         integer :page
         integer :page_size
       end

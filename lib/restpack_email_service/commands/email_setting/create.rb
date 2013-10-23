@@ -2,21 +2,27 @@ module RestPack::Email::Service::Commands
   module EmailSetting
     class Create < RestPack::Service::Command
       required do
-        array :settings do
+        array :email_settings do
           hash do
             required do
               integer :application_id
-              string :provider, in: ['aws_ses']
-              string :username
-              string :secret
+              string :smtp_server
+              string :smtp_username
+              string :smtp_password
+              string :default_from
+            end
+
+            optional do
+              integer :domain_id
+              integer :smtp_port
             end
           end
         end
       end
 
       def execute
-        settings = Models::EmailSetting.create!(inputs[:settings])
-        Serializers::EmailSetting.serialize(settings)
+        email_settings = Models::EmailSetting.create!(inputs[:email_settings])
+        Serializers::EmailSetting.serialize(email_settings)
       end
     end
   end
