@@ -9,19 +9,36 @@ describe RestPack::Email::Service::Jobs::Email::Send do
     subject.stub(:template_path).and_return('../../../../../spec/templates')
   end
 
-  context 'with a custom template' do
-    let(:template) {
-      create(:email_template, subject_template: 'subject',
-        text_template: 'text', html_template: 'html')
-    }
-    let(:expected_raw_params) { {
-      application_id: template[:application_id], template: template[:identifier],
-      subject: 'subject', text_body: 'text', html_body: 'html'
-    } }
+  context 'custom templates' do
+    context 'simple template' do
+      let(:template) {
+        create(:email_template, subject_template: 'subject', text_template: 'text', html_template: 'html')
+      }
+      let(:expected_raw_params) { {
+        application_id: template[:application_id], template: template[:identifier],
+        subject: 'subject', text_body: 'text', html_body: 'html'
+      } }
 
-    it 'sends an email' do
-      subject.perform({ application_id: template.application_id, template: template.identifier })
+      it 'sends an email' do
+        subject.perform({ application_id: template.application_id, template: template.identifier })
+      end
     end
+
+    context 'with a default email address' do
+      let(:template) {
+        create(:email_template, subject_template: 'subject',
+          text_template: 'text', html_template: 'html', from: 'gavinjoyce@gmail.com')
+      }
+      let(:expected_raw_params) { {
+        application_id: template[:application_id], template: template[:identifier],
+        subject: 'subject', text_body: 'text', html_body: 'html', from: 'gavinjoyce@gmail.com'
+      } }
+
+      it 'sends an email' do
+        subject.perform({ application_id: template.application_id, template: template.identifier })
+      end
+    end
+
   end
 
   context 'with a default template' do

@@ -14,6 +14,11 @@ module RestPack::Email::Service::Jobs
           params[:subject] = template.render_subject(params[:data])
           params[:text_body] = template.render_text(params[:data])
           params[:html_body] = template.render_html(params[:data])
+
+          if template.from
+            params[:from] ||= template.from
+          end
+
           send_raw.perform(params)
         else
           #TODO: GJ: logging exception
