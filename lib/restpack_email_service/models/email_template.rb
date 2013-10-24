@@ -10,19 +10,23 @@ module RestPack::Email::Service::Models
                           :text_template, :html_template
 
     def render_subject(data)
-      if self.text_template
-        return Liquid::Template.parse(self.subject_template).render(data)
-      end
+      render(subject_template, data)
     end
     def render_text(data)
-      if self.text_template
-        return Liquid::Template.parse(self.text_template).render(data)
-      end
+      render(text_template, data)
     end
     def render_html(data)
-      if self.html_template
-        return Liquid::Template.parse(self.html_template).render(data)
-      end
+      render(html_template, data)
+    end
+
+    private
+
+    def render(template, data)
+      return nil unless template
+
+      data.deep_stringify_keys! if data
+      rendered = Liquid::Template.parse(template).render(data)
+      rendered.strip
     end
   end
 end
