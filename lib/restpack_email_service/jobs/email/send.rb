@@ -21,11 +21,11 @@ module RestPack::Email::Service::Jobs
         end
       end
 
+      private
+
       def send_raw
         Jobs::Email::SendRaw.new
       end
-
-      private
 
       def get_template(params)
         application_id = params[:application_id]
