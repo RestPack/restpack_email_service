@@ -6,7 +6,7 @@ module RestPack::Email::Service::Serializers
     self.key = :email_settings
 
     attributes :id, :application_id, :domain_id, :smtp_server,
-               :smtp_username, :smtp_port, :default_from
+               :smtp_username, :smtp_password, :smtp_port, :default_from
     can_filter_by :application_id
   end
 end

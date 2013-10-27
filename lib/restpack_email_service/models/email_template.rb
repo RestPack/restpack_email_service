@@ -5,7 +5,7 @@ module RestPack::Email::Service::Models
     self.table_name = :restpack_email_templates
 
     attr_accessible :application_id, :identifier, :from, :subject_template,
-                    :text_template, :html_template
+                    :text_template, :html_template, :test_data
     validates_presence_of :application_id, :identifier, :subject_template,
                           :text_template, :html_template
 

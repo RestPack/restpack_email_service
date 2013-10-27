@@ -21,8 +21,8 @@ module RestPack::Email::Service::Jobs
         end
 
         mail = Mail.new do
-          to params[:to] || settings[:default_from]
-          from params[:from]
+          to params[:to]
+          from params[:from] || settings[:default_from]
           subject params[:subject]
 
           text_part do
@@ -45,10 +45,10 @@ module RestPack::Email::Service::Jobs
       def email_settings(params)
         settings = Serializers::EmailSetting.resource(
           application_id: params[:application_id]
-        )[:settings].first
+        )[:email_settings]
 
-        raise "Email is not setup for this application" unless settings
-        return settings
+        raise "Email is not setup for this application" if settings.empty?
+        return settings.first
       end
     end
   end
