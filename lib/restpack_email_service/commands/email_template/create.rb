@@ -15,7 +15,7 @@ module RestPack::Email::Service::Commands
               string :from
               string :text_template
               string :html_template
-              string :data #TODO: GJ: json type?
+              model :data, class: Hash
             end
           end
         end
