@@ -16,7 +16,7 @@ module RestPack::Email::Service::Commands
               string :from
               string :text_template
               string :html_template
-              string :test_data #TODO: GJ: json type?
+              string :data #TODO: GJ: json type?
             end
           end
         end
