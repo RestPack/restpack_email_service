@@ -1,11 +1,23 @@
 {{header}}
 
-<p>
-[NAME] has invited you to join the [{{group_name}}] group on [WEBITE NAME]:
-</p>
+<h4>{{inviter}} wants you to join <span style="color: darkgreen">{{group.name}}</span> on ThingRoulette.</h4>
 
-<p>
-[JOIN BUTTON]
-</p>
+<div style="margin:20px">
+  <a style="display:inline-block;padding:7px 15px;background-color:#32b12c;color:#fff;font-size:16px;font-weight:bold;border-radius:2px;border:solid 1px #23891f;white-space:nowrap;text-decoration:none" href="{{accept_url}}" target="_blank">Yes Please</a>
+  |
+  <a style="display:inline-block;padding:7px 15px;background-color:#d44b38;color:#fff;font-size:16px;font-weight:bold;border-radius:2px;border:solid 1px #c43b28;white-space:nowrap;text-decoration:none" href="{{reject_url}}" target="_blank">No Thanks</a>
+</div>
 
 {{footer}}
+
+
+<hr />
+{
+  "inviter": "Gavin Joyce",
+  "accept_url": "http://auth.restpack.org:8012/groups/rsvp?group_id=142857&key=ABCDEFG",
+  "reject_url": "http://auth.restpack.org:8012/groups/rsvp?group_id=142857&reject=1&key=ABCDEFG",
+  "group": {
+    "id": 142857,
+    "name": "Some Group"
+  }
+}
