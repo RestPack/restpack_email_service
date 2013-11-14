@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :api_email_setting, class: Hash do
+  factory :api_configuration, class: Hash do
     sequence(:application_id)
 
     sequence(:smtp_server)   {|n| "smtp.domain#{n}.com" }

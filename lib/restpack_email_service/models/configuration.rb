@@ -1,6 +1,6 @@
-module RestPack::Email::Service::Models
-  class EmailSetting < ActiveRecord::Base
-    self.table_name = :restpack_email_settings
+module Models::Email
+  class Configuration < ActiveRecord::Base
+    self.table_name = :restpack_email_configurations
 
     attr_accessible :application_id, :domain_id, :smtp_server, :smtp_username,
                     :smtp_password, :smtp_port, :default_from

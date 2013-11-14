@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :api_email_template, class: Hash do
+  factory :api_template, class: Hash do
     sequence(:application_id)
 
     sequence(:identifier)       {|n| "template#{n}" }

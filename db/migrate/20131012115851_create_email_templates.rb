@@ -1,4 +1,4 @@
-class CreateEmailTemplate < ActiveRecord::Migration
+class CreateEmailTemplates < ActiveRecord::Migration
   def change
     create_table :restpack_email_templates do |t|
       t.integer :application_id,    :null => false

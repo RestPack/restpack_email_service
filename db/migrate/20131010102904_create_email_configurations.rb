@@ -1,6 +1,6 @@
-class CreateEmailSetting < ActiveRecord::Migration
+class CreateEmailConfigurations < ActiveRecord::Migration
   def change
-    create_table :restpack_email_settings do |t|
+    create_table :restpack_email_configurations do |t|
       t.integer :application_id,        :null => false
       t.integer :domain_id
       t.string  :smtp_server,           :null => false, :limit => 1024

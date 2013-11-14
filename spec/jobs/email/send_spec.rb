@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RestPack::Email::Service::Jobs::Email::Send do
+describe Jobs::Email::Send do
   let(:expected_raw_params) { {} }
   before do
     send_raw = double('send_raw')
@@ -12,7 +12,7 @@ describe RestPack::Email::Service::Jobs::Email::Send do
   context 'custom templates' do
     context 'simple template' do
       let(:template) {
-        create(:email_template, subject_template: 'subject', text_template: 'text', html_template: 'html')
+        create(:template, subject_template: 'subject', text_template: 'text', html_template: 'html')
       }
       let(:expected_raw_params) { {
         application_id: template[:application_id], template: template[:identifier],
@@ -26,7 +26,7 @@ describe RestPack::Email::Service::Jobs::Email::Send do
 
     context 'with a default email address' do
       let(:template) {
-        create(:email_template, subject_template: 'subject',
+        create(:template, subject_template: 'subject',
           text_template: 'text', html_template: 'html', from: 'gavinjoyce@gmail.com')
       }
       let(:expected_raw_params) { {

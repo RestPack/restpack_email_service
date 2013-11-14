@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :email_template, :class => Models::EmailTemplate do
+  factory :template, :class => Models::Email::Template do
     sequence(:application_id)
     sequence(:identifier) {|n| "template.#{n}" }
     sequence(:subject_template) {|n| "This is the subject (#{n})" }

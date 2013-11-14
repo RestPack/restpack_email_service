@@ -1,7 +1,7 @@
 require 'liquid'
 
-module RestPack::Email::Service::Models
-  class EmailTemplate < ActiveRecord::Base
+module Models::Email
+  class Template < ActiveRecord::Base
     self.table_name = :restpack_email_templates
 
     attr_accessible :application_id, :identifier, :from, :subject_template,
