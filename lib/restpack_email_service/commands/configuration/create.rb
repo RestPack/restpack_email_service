@@ -1,4 +1,4 @@
-module Commands::Email::Configuration
+module Email::Commands::Configuration
   class Create < RestPack::Service::Commands::Create
     required do
       array :configurations do

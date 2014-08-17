@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Jobs::Email::Send do
+describe Email::Jobs::Send do
   let(:expected_raw_params) { {} }
   before do
     send_raw = double('send_raw')

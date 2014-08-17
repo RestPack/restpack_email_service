@@ -9,6 +9,6 @@ This gem provides services for sending and receiving Emails.
 ## Development Setup
 
 1. install postgres
-2. create a `restpack_email_service_test` database
-3. bundle
-4. rake
+2. `bundle install`
+3. `rake db:create`
+4. `rake test`

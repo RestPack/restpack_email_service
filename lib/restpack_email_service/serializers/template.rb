@@ -1,8 +1,8 @@
-module Serializers::Email
+module Email::Serializers
   class Template
     include RestPack::Serializer
 
-    self.model_class = Models::Email::Template
+    self.model_class = Email::Models::Template
     self.key = :templates
 
     attributes :id, :application_id, :identifier, :subject_template,

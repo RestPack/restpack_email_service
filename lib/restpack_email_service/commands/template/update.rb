@@ -1,4 +1,4 @@
-module Commands::Email::Template
+module Email::Commands::Template
   class Update < RestPack::Service::Command
     required do
       array :email_templates do

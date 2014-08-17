@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Jobs::Email::SendRaw do
+describe Email::Jobs::SendRaw do
   pending 'add some specs'
 end

@@ -1,4 +1,4 @@
-module Models::Email
+module Email::Models
   class Configuration < ActiveRecord::Base
     self.table_name = :restpack_email_configurations
 

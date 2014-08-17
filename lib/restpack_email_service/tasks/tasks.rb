@@ -1,4 +1,4 @@
-module RestPack::Email::Service
+module Email
   class Tasks
     def self.load_tasks
       load "restpack_email_service/tasks/db.rake"

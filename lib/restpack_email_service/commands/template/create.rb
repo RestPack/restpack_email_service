@@ -1,4 +1,4 @@
-module Commands::Email::Template
+module Email::Commands::Template
   class Create < RestPack::Service::Commands::Create
     required do
       array :templates do

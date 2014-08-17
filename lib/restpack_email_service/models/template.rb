@@ -1,6 +1,6 @@
 require 'liquid'
 
-module Models::Email
+module Email::Models
   class Template < ActiveRecord::Base
     self.table_name = :restpack_email_templates
 

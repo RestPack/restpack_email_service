@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Commands::Email::Template::List do
+describe Email::Commands::Template::List do
   is_required :application_id
   is_optional :page, :page_size
 

@@ -1,6 +1,6 @@
 require 'sidekiq'
 
-module Jobs::Email
+module Email::Jobs
   class Send
     include Sidekiq::Worker
 
@@ -28,7 +28,7 @@ module Jobs::Email
     private
 
     def send_raw
-      Jobs::Email::SendRaw.new
+      Email::Jobs::SendRaw.new
     end
 
     def get_template(params)
@@ -40,12 +40,12 @@ module Jobs::Email
     end
 
     def resolve_template(application_id, identifier)
-      template = Models::Email::Template.where(
+      template = Email::Models::Template.where(
         application_id: application_id,
         identifier: identifier
       ).take
 
-      template ||= Models::Email::Template.new
+      template ||= Email::Models::Template.new
 
       if template.subject_template.blank?
         template.subject_template = load_default_template(identifier, 'subject')

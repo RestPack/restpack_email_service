@@ -1,4 +1,4 @@
-module Commands::Email::Template
+module Email::Commands::Template
   class List < RestPack::Service::Commands::List
     required do
       integer :application_id

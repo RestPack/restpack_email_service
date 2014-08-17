@@ -1,4 +1,4 @@
-module Commands::Email::Configuration
+module Email::Commands::Configuration
   class Update < RestPack::Service::Command
     required do
       array :configurations do

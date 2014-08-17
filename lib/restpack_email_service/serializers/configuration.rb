@@ -1,8 +1,8 @@
-module Serializers::Email
+module Email::Serializers
   class Configuration
     include RestPack::Serializer
 
-    self.model_class = Models::Email::Configuration
+    self.model_class = Email::Models::Configuration
     self.key = :configurations
 
     attributes :id, :application_id, :domain_id, :smtp_server,

@@ -1,12 +1,7 @@
-module Commands::Email::Configuration
+module Email::Commands::Configuration
   class List < RestPack::Service::Commands::List
     required do
       integer :application_id
-    end
-
-    optional do
-      integer :page
-      integer :page_size
     end
   end
 end

@@ -1,7 +1,7 @@
 require 'sidekiq'
 require 'mail'
 
-module Jobs::Email
+module Email::Jobs
   class SendRaw
     include Sidekiq::Worker
 
@@ -42,7 +42,7 @@ module Jobs::Email
     private
 
     def get_configuration(params)
-      config = Serializers::Email::Configuration.resource(
+      config = Email::Serializers::Configuration.resource(
         application_id: params[:application_id]
       )[:configurations]
 
